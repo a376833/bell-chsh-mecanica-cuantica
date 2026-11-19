@@ -1,74 +1,41 @@
-## Desigualdades de Bell y experimentos sin lagunas
+# Desigualdades de Bell y CHSH — Mecánica Cuántica
 
-**Proyecto de Mecánica Cuántica**  
-Facultad de Ingeniería — Universidad Autónoma de Chihuahua  
-Licenciatura en Ingeniería Física
+**Autora:** Aylin Fernanda Terán Díaz · Universidad Autónoma de Chihuahua
 
-**Integrantes:**
-- Aylin Fernanda Teran Diaz 
-- Angel Amir Prieto Lopez
+## Contenido
 
-## Descripción del proyecto
+- `notebooks/01_simulacion_bell.ipynb`: notebook único, ejecutado y con resultados visibles.
+- `figuras/`: cuatro figuras PNG producidas por el notebook, con los nombres usados en Overleaf.
+- `datos/`: tablas CSV de los resultados, convergencia, ruido y eficiencia.
+- `informe/ajustes_numericos_reporte.md`: cifras exactas para sincronizar el reporte LaTeX.
 
-Este proyecto estudia las desigualdades de Bell y su relación con el entrelazamiento cuántico, utilizando un sistema de dos partículas de espín 1/2 preparadas en el estado singlete.
-Se compararán las predicciones de la mecánica cuántica con las de un modelo de variables ocultas locales mediante la desigualdad CHSH.
-También se desarrollarán simulaciones Monte Carlo en Python para estudiar cómo influyen el ruido, la eficiencia de detección y el número de mediciones en los resultados.
-Finalmente, se analizarán los experimentos sin lagunas realizados en Delft, Viena y NIST durante 2015.
+## Cómo reproducir
 
-## Objetivos
+Requiere Python 3.10+ y Jupyter. Desde la raíz del repositorio:
 
-- Obtener las correlaciones cuánticas del estado singlete.
-- Demostrar la desigualdad CHSH para modelos locales.
-- Calcular la máxima violación predicha por la mecánica cuántica.
-- Desarrollar simulaciones Monte Carlo reproducibles.
-- Analizar los efectos del ruido y de las pérdidas de detección.
-- Comparar los principales experimentos de Bell realizados en 2015.
+```bash
+python -m pip install -r requirements.txt
+cd notebooks
+jupyter notebook 01_simulacion_bell.ipynb
+```
 
-## Organización del repositorio
+Seleccionar **Kernel → Restart & Run All**. Las figuras y CSV se guardan automáticamente en las carpetas correspondientes. Se usan NumPy, Matplotlib y Pandas; semilla base `42` y subsemillas deterministas por sección, por lo que los resultados no dependen del orden en que se ejecuten otras secciones.
 
-- **notebooks/**: programas y simulaciones en Python.
-- **figuras/**: gráficas generadas a partir de los resultados.
-- **datos/**: resultados numéricos de las simulaciones.
-- **referencias/**: material bibliográfico y notas de investigación.
-- **informe/**: archivos del artículo científico elaborado en LaTeX.
+## Reproducir cada figura
 
-## Herramientas utilizadas
+1. `figuras/correlacion_angular.png`: sección 1, 37 ángulos y 1000 pares por ángulo.
+2. `figuras/convergencia_CHSH.png`: sección 2, N=100, 1000, 10000 y 100000 pares por combinación.
+3. `figuras/comparacion_local_cuantica.png`: sección 3, comparación Monte Carlo y teoría local/cuántica.
+4. `figuras/ruido_visibilidad_CHSH.png`: sección 4, nueve visibilidades, 100000 pares por combinación.
 
-- Python
-- NumPy
-- Matplotlib
-- Google Colab
-- GitHub
-- Overleaf
+La sección 5 estudia pérdidas de detección independientes y aclara que seleccionar solo coincidencias no constituye una prueba libre de la laguna de detección. La sección 6 exporta los CSV.
 
-## Reproducción de resultados
+## Convenciones y límites
 
-El código se encuentra en la carpeta `notebooks/`.
+Se usa `S=E(a,b)-E(a,b')+E(a',b)+E(a',b')`, con a=0°, a'=90°, b=45° y b'=135°. Para el singlete, `E_Q(θ)=-cos θ`, mientras que el modelo local explícito predice `E_L(θ)=-1+2θ/π` para 0≤θ≤π. Las estimaciones de muestra pueden sobrepasar ligeramente las cotas teóricas por fluctuaciones finitas. El muestreo cuántico parte de probabilidades teóricas y **no es un experimento físico ni una refutación independiente del realismo local**.
 
-Para ejecutar el primer cuaderno:
+**Importante:** antes de entregar el PDF final, sincronizar las tablas y resultados con `informe/ajustes_numericos_reporte.md`.
 
-1. Descargar `01_simulacion_bell.ipynb` desde el repositorio.
-2. Abrir el archivo en Google Colab.
-3. Ejecutar las celdas en orden.
+## Historial de cambios
 
-El primer cuaderno contiene una gráfica de la correlación teórica del estado singlete:
-
-**E(θ) = −cos(θ)**
-
-Las simulaciones Monte Carlo y sus parámetros se incorporarán durante el desarrollo del proyecto.
-
-## Estado del proyecto
-
-En desarrollo.
-
-## Referencias principales
-
-Griffiths, D. J., y Schroeter, D. F. (2018). *Introduction to Quantum Mechanics*. Cambridge University Press.
-
-Bell, J. S. (1964). *On the Einstein Podolsky Rosen paradox*. Physics Physique Fizika.
-
-Hensen, B., et al. (2015). *Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres*. Nature.
-
-## Uso de inteligencia artificial
-
-Se utiliza inteligencia artificial como herramienta de apoyo para comprender conceptos teóricos, organizar el proyecto y revisar código. Su utilización se documentará en el informe final.
+El ZIP no contiene metadatos `.git` ni puede crear retroactivamente un historial de commits. Conservar los commits previos del repositorio y subir los cambios de manera auténtica, sin inventar fechas.
