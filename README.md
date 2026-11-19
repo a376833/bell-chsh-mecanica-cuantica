@@ -42,3 +42,11 @@ La simulación utiliza una semilla base de 42 y generadores independientes para 
 ## Alcance
 
 Las simulaciones cuánticas utilizan las probabilidades teóricas del estado singlete. Por ello, sirven para estudiar las predicciones de la mecánica cuántica, pero no sustituyen una prueba experimental de Bell. Asimismo, el análisis de pérdidas independientes no demuestra por sí mismo el cierre de la laguna de detección.
+
+### Reproducción de una figura experimental
+
+Se reprodujo la Figura 4a del artículo de Hensen et al. (2015), *Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres*, utilizando los conteos experimentales publicados.
+
+A partir de estos datos se calcularon las cuatro correlaciones correspondientes a las configuraciones de medición CHSH, obteniendo \(S=2.4225\), consistente con el resultado reportado de \(S=2.42\pm0.20\).
+
+La reproducción se realizó mediante Python e incluye las correlaciones experimentales y sus incertidumbres estadísticas. El procedimiento permite verificar numéricamente la violación de la desigualdad CHSH a partir de los datos originales.
